@@ -160,7 +160,7 @@ $.fn.DataObjectManager.init = function(obj) {
 				$list = $(this);
 				do_class = $.trim($list.attr('class').replace('sortable-','').replace('ui-sortable',''));
 				type = $container.hasClass('ManyMany') ? $container.find('input[name=controllerID]').val() : '';
-				$.post('DataObjectManager_Controller/dosort/'+do_class+'/'+type, $list.sortable("serialize"));
+				$.post('DataObjectManager_Controller/dosort/'+do_class+'/'+type, $list.sortable("serialize") + '?cacheb=' + (Date.now()));
 				e.stopPropagation();
 			},
 			items : 'li:not(.head)',
